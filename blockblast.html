@@ -4,171 +4,356 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Block Blast - Match, Blast & Challenge Your Mind</title>
-     <meta name="description" content="Experience the addictive block-matching puzzle game of 2024. Match blocks of the same color to clear them and score points. Compete for high scores, unlock power-ups, and face increasingly difficult levels. Join over 4 million players."/>
-    <meta name="keywords" content="block blast, block matching puzzle game, addictive game, puzzle, mobile game, strategy game, power-ups, global rankings, challenging levels" />
-    <!-- Open Graph Meta Tags (for Social Sharing) -->
+    <meta name="description" content="Experience the most addictive block-matching puzzle game of 2024. Match blocks, compete for high scores, and unlock powerful combos. Join over 4 million players now!">
+    <meta name="keywords" content="block blast, puzzle game, mobile game, match 3, addictive, strategy, casual game, leaderboard, power-ups, game reviews">
     <meta property="og:title" content="Block Blast - Match, Blast & Challenge Your Mind">
-    <meta property="og:description" content="Experience the addictive block-matching puzzle game of 2024. Match blocks of the same color to clear them and score points. Compete for high scores, unlock power-ups, and face increasingly difficult levels. Join over 4 million players." />
-    <meta property="og:url" content="https://heymanifestation.com/block-blast-landing-page">
+    <meta property="og:description" content="Experience the most addictive block-matching puzzle game of 2024. Match blocks, compete for high scores, and unlock powerful combos. Join over 4 million players now!">
+    <meta property="og:url" content="https://heymanifestation.com/block-blast">
     <meta property="og:type" content="website">
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
+     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Block Blast - Match, Blast & Challenge Your Mind">
-    <meta name="twitter:description" content="Experience the addictive block-matching puzzle game of 2024. Match blocks of the same color to clear them and score points. Compete for high scores, unlock power-ups, and face increasingly difficult levels. Join over 4 million players." />
-    <meta name="twitter:url" content="https://heymanifestation.com/block-blast-landing-page">
+    <meta name="twitter:description" content="Experience the most addictive block-matching puzzle game of 2024. Match blocks, compete for high scores, and unlock powerful combos. Join over 4 million players now!">
+    <meta name="twitter:url" content="https://heymanifestation.com/block-blast">
      <link rel="icon" href="favicon.ico" type="image/x-icon">
-     <style>
+    <style>
         body {
-            font-family: sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #3063A0; /* Background color */
+            background-color: #171a33; /* Dark Background */
             color: #fff;
-            line-height: 1.6;
+            line-height: 1.8;
+           overflow-x: hidden;
         }
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h1, h2 {
-            color: #ffdd30; /* Primary heading color */
-            text-align: center;
-        }
-
-         h3{
-             color: #ffdd30; /* Secondary heading color */
-         }
-        p {
-           margin-bottom: 1.3rem;
-        }
-         section {
-            padding: 20px 0;
-        }
-        .game-features{
-          background-color: #1c3b5a;
-             padding: 20px;
-            margin: 20px 0;
-        }
-        .game-features h2{
-           text-align: left;
-          margin-bottom: 15px;
-        }
-      .game-features-grid{
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-          margin-bottom: 10px;
-      }
-      .game-feature-card{
-          background-color: #3063A0;
-            border-radius: 5px;
-            padding: 15px;
-      }
-         .game-feature-card h3{
-            margin-top: 0px;
-           margin-bottom: 10px;
-           color: #fff
+         a {
+            color: #ffdd30;
+            text-decoration: none;
           }
-           .how-to-play{
-            background-color: #1c3b5a;
-              padding: 20px;
-             margin: 20px 0;
+        .container {
+           max-width: 1200px; /* Wider container for modern look */
+             margin: 0 auto;
+             padding: 0 20px;
         }
-         .how-to-play h2{
-           text-align: left;
-          margin-bottom: 15px;
+
+        /* Hero Section */
+       .hero-section{
+            padding: 100px 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
         }
-     .how-to-play-card{
-          background-color: #3063A0;
-          padding: 15px;
-           border-radius: 5px;
-          margin-bottom: 10px;
-      }
-         .how-to-play-card span{
-              background-color: #ffdd30;
-               color: #1c3b5a;
-               border-radius: 50%;
-                padding: 5px;
-               margin-right: 10px;
-              font-weight: bold;
+        .hero-section h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+           color: #ffdd30; /* Primary heading color */
+        }
+         .hero-section p{
+           font-size: 1.2em;
+             margin-bottom: 30px;
+        }
+        .btn{
+             background-color: #ffdd30; /* Button color */
+            color: #171a33; /* Button text color */
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+         .btn:hover {
+          background-color: #f5d11a;
            }
-          .player-reviews{
-            background-color: #1c3b5a;
-               padding: 20px;
+        /* Game Features */
+        .game-features {
+             padding: 50px 0;
+             background-color: #292d4c; /* Dark Game Feature Background*/
             margin: 20px 0;
         }
-       .player-reviews h2{
-           text-align: left;
-           margin-bottom: 15px;
-       }
-      .player-reviews-grid{
+         .game-features h2 {
+            font-size: 2.5em;
+            text-align: center;
+             margin-bottom: 30px;
+             color: #ffdd30; /* Secondary heading color */
+        }
+       .game-features-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 10px;
-           margin-bottom: 10px;
-       }
-     .player-review-card{
-           background-color: #3063A0;
-            padding: 15px;
-         border-radius: 5px;
-     }
-     .player-review-card p{
-            font-size: 0.9em;
-     }
-        .player-review-card span{
-            color: #ffdd30
+         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+         gap: 30px;
+           padding: 0 20px;
+        }
+         .game-feature-card {
+              background-color: #3063A0;
+              padding: 20px;
+              border-radius: 8px;
+             text-align: center;
+          }
+         .game-feature-card h3 {
+                font-size: 1.5em;
+              margin-bottom: 15px;
+                 color: #fff;
          }
-     .frequent-questions{
-          background-color: #1c3b5a;
-               padding: 20px;
+
+        /* How to Play */
+        .how-to-play {
+            padding: 50px 0;
+              margin: 20px 0;
+         background-color: #1c3b5a; /* Dark How To Play Background */
+        }
+          .how-to-play h2{
+          font-size: 2.5em;
+         text-align: center;
+           margin-bottom: 30px;
+             color: #ffdd30; /* Secondary heading color */
+          }
+        .how-to-play-grid {
+             display: flex;
+            flex-direction: column;
+           gap: 20px;
+          padding: 0 20px;
+        }
+
+         .how-to-play-card {
+             background-color: #3063A0;
+           padding: 20px;
+           border-radius: 8px;
+              display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .how-to-play-card span {
+            background-color: #ffdd30; /* Highlighted number */
+           color: #171a33;
+           border-radius: 50%;
+           padding: 10px 15px;
+           font-size: 1.2em;
+            font-weight: bold;
+       }
+        .how-to-play-card h3{
+             margin: 0px;
+        }
+       .how-to-play-card p{
+          margin-top: 10px;
+       }
+
+         .pro-tips {
+         padding: 20px;
+          margin: 20px;
+          background-color: #171a33; /* Dark How To Play Background */
+             border-radius: 10px;
+
+        }
+         .pro-tips h3{
+            margin-bottom: 15px;
+            color: #ffdd30; /* Secondary heading color */
+        }
+          .pro-tips ul{
+            padding-left: 20px;
+        }
+           .pro-tips li{
+             margin-bottom: 10px;
+        }
+
+         /* Player Reviews */
+        .player-reviews {
+            padding: 50px 0;
+            background-color: #292d4c; /* Dark Player Review Background */
+              margin: 20px 0;
+        }
+          .player-reviews h2 {
+              font-size: 2.5em;
+            text-align: center;
+             margin-bottom: 30px;
+           color: #ffdd30; /* Secondary heading color */
+        }
+        .player-reviews-grid {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+           gap: 30px;
+              padding: 0 20px;
+         }
+          .player-review-card {
+            background-color: #3063A0;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+
+        }
+           .player-review-card p {
+            margin-bottom: 10px;
+           }
+        .player-review-card span {
+              color: #ffdd30; /* Star ratings and name color */
+        }
+          .player-review-card .hours{
+               font-size: 0.9em;
+            font-style: italic;
+        }
+
+         /* Frequently Asked Questions */
+        .frequent-questions {
+            padding: 50px 0;
+           background-color: #1c3b5a;  /* Dark FAQ Background */
            margin: 20px 0;
         }
-     .frequent-questions h2{
-       text-align: left;
-        margin-bottom: 15px;
-     }
-    .frequent-question-card{
-         background-color: #3063A0;
-            padding: 15px;
-             border-radius: 5px;
-             margin-bottom: 10px;
-     }
-     .frequent-question-card h3 {
-         color: #fff
-     }
+          .frequent-questions h2 {
+            font-size: 2.5em;
+           text-align: center;
+           margin-bottom: 30px;
+              color: #ffdd30; /* Secondary heading color */
+        }
+        .frequent-question-grid{
+         display: flex;
+           flex-direction: column;
+          gap: 20px;
+          padding: 0 20px;
+        }
+
+        .frequent-question-card {
+            background-color: #3063A0;
+           padding: 20px;
+           border-radius: 8px;
+        }
+       .frequent-question-card h3 {
+          margin-bottom: 10px;
+              font-size: 1.3em;
+              color: #fff
+        }
+        /* Footer */
         .footer {
+            background-color: #171a33; /* Footer background color */
+            padding: 30px 0;
             text-align: center;
-            margin-top: 20px;
-            padding: 10px;
+             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 30px;
+             padding: 0 20px;
         }
-        .footer a{
-            color: #fff;
+        .footer a {
+           color: #e5e5e5;
+            text-decoration: none;
+             transition: color 0.3s ease;
         }
-       .footer .links{
+       .footer a:hover {
+          color: #ffdd30;
+        }
+       .footer p {
+           margin-bottom: 10px;
+             font-size: 0.9em;
+        }
+         .footer .links {
           display: flex;
           justify-content: center;
             gap: 1rem;
-           margin-top: 1rem;
-        }
+            margin-top: 1rem;
+          }
 
         .footer .links a {
-         color: #fff;
+           color: #fff;
          text-decoration: none;
-          transition: color 0.3s ease;
+         transition: color 0.3s ease;
         }
        .footer .links a:hover {
          color: #ffdd30;
        }
+         @media (max-width: 768px) {
+           .hero-section h1{
+            font-size: 2.5em;
+           }
+            .hero-section p{
+              font-size: 1em;
+           }
+            .footer{
+               grid-template-columns: 1fr;
+             }
+             .footer div{
+                  margin-bottom: 20px;
+             }
+           }
+          /* BrainSTORM  */
+        .brainstorm{
+           padding: 50px 0;
+         text-align: center;
+          background-color: #292d4c; /* Dark BrainStorm Background */
+           margin: 20px 0;
+
+        }
+        .brainstorm p{
+             font-size: 2em;
+        }
+        .brainstorm .btn{
+              margin-top: 15px;
+        }
+    .text-primary{
+     color: #ffdd30;
+   }
+      .dropdown {
+          position: relative;
+      }
+
+      .dropdown-content {
+           display: none;
+             position: absolute;
+             top: 100%;
+               right: 0;
+            z-index: 100; /* Ensure it's above other elements */
+        }
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+         }
+
+         .tooltip {
+           position: relative;
+           display: inline-block;
+            color: #ffdd30; /* Primary heading color */
+         }
+        .tooltip svg {
+          fill: #ffdd30;
+         }
+
+          .tooltip:hover{
+          color: #f5d11a;
+          }
+          .tooltip:hover svg{
+             fill: #f5d11a;
+          }
+        .tooltip-left:before{
+             position: absolute;
+              background-color: #171a33;
+             color: #fff;
+            font-size: 12px;
+               padding: 8px;
+            border-radius: 5px;
+             white-space: nowrap;
+             opacity: 0;
+              left: -150px;
+                transition: opacity 0.5s;
+                 content: attr(data-tip);
+               bottom: 15px;
+        }
+         .tooltip-left:hover:before{
+              opacity: 1;
+            }
+
     </style>
 </head>
 <body>
+        <section class = "hero-section">
+        <div class = "container">
+             <h1>BLOCK BLAST</h1>
+              <p>Match, Blast & Challenge Your Mind!</p>
+               <a href = "#" class = "btn">Play Now</a>
+            </div>
+        </section>
     <div class="container">
            <section class="game-features">
            <h2>Game Features</h2>
-               <p>Experience the most addictive block-matching puzzle game of 2024</p>
           <div class="game-features-grid">
                <div class="game-feature-card">
                   <h3>Simple & Addictive</h3>
@@ -199,7 +384,7 @@
 
          <section class ="how-to-play">
             <h2>How to Play Block Blast</h2>
-             <p>Master these simple steps to become a Block Blast champion</p>
+         <div class = "how-to-play-grid">
          <div class = "how-to-play-card">
               <span>1</span>
            <h3>Match & Blast Blocks</h3>
@@ -220,20 +405,19 @@
                 <h3>Complete Block Blast Challenges</h3>
                 <p>Each level in Block Blast offers unique objectives - clear specific colored blocks, reach target scores, or create massive combos!</p>
          </div>
-        <div style = "padding-left: 20px; margin-bottom: 10px;">
-         <h3>Pro Block Blast Tips</h3>
-         <ul>
-             <li>Start from the bottom in Block Blast to create better chain reactions.</li>
-             <li>Look for opportunities to combine multiple Block Blast power-ups.</li>
-            <li>Plan your moves ahead to maximize your Block Blast combos and score.</li>
-            <li>Practice timing your Block Blast combos for maximum effect.</li>
-           </ul>
-        </div>
-
+           </div>
+            <div class="pro-tips">
+           <h3>Pro Block Blast Tips</h3>
+               <ul>
+                   <li>Start from the bottom in Block Blast to create better chain reactions.</li>
+                   <li>Look for opportunities to combine multiple Block Blast power-ups.</li>
+                   <li>Plan your moves ahead to maximize your Block Blast combos and score.</li>
+                   <li>Practice timing your Block Blast combos for maximum effect.</li>
+               </ul>
+            </div>
     </section>
          <section class = "player-reviews">
             <h2>Block Blast Player Reviews</h2>
-          <p>Join millions of happy Block Blast players worldwide</p>
           <div class ="player-reviews-grid">
             <div class = "player-review-card">
                 <p><span>4.9</span> ⭐⭐⭐⭐⭐</p>
@@ -245,50 +429,44 @@
               <p>⭐⭐⭐⭐⭐</p>
                 <p>"Block Blast is my daily brain exercise! The combo system is so satisfying, and I love how the difficulty gradually increases. Perfect for quick gaming sessions!"</p>
                    <span>Sarah J.</span>
-                  <p>Block Blast Enthusiast</p>
-                   <p>300+ hours</p>
+                  <p class = "hours">300+ hours</p>
             </div>
             <div class = "player-review-card">
                 <p>⭐⭐⭐⭐⭐</p>
                 <p>"As a puzzle game veteran, Block Blast stands out with its polished mechanics and addictive gameplay. The power-ups add a great strategic layer!"</p>
                   <span>Michael C.</span>
-                  <p>Pro Block Blast Player</p>
-                   <p>500+ hours</p>
+                  <p class = "hours">500+ hours</p>
             </div>
            <div class = "player-review-card">
                <p>⭐⭐⭐⭐⭐</p>
                <p>"The most addictive puzzle game I've played this year! Block Blast's combo system keeps me coming back for higher scores every day."</p>
                   <span>David R.</span>
-                <p>Competitive Player</p>
-                 <p>400+ hours</p>
+                 <p class = "hours">400+ hours</p>
           </div>
             <div class = "player-review-card">
                <p>⭐⭐⭐⭐⭐</p>
                  <p>"I love how Block Blast works perfectly on mobile. The touch controls are smooth, and the quick matches fit perfectly into my busy schedule."</p>
                  <span>Lisa K.</span>
-                 <p>Mobile Gamer</p>
-                 <p>200+ hours</p>
+                   <p class = "hours">200+ hours</p>
             </div>
             <div class = "player-review-card">
                  <p>⭐⭐⭐⭐⭐</p>
                 <p>"Block Blast perfectly balances casual fun with strategic depth. I've gotten my whole family hooked on it - even my mom plays daily!"</p>
                    <span>Emma W.</span>
-                 <p>Casual Gamer</p>
-                  <p>150+ hours</p>
+                  <p class = "hours">150+ hours</p>
              </div>
             <div class = "player-review-card">
                  <p>⭐⭐⭐⭐⭐</p>
                 <p>"Block Blast's weekly challenges add a great competitive element. The community is friendly, and comparing scores with friends is super fun!"</p>
                 <span>James T.</span>
-                  <p>Social Gamer</p>
-                   <p>250+ hours</p>
+                   <p class = "hours">250+ hours</p>
             </div>
            </div>
             <p style="text-align: right; font-size: 0.8em; font-style: italic">★ Reviews verified by Block Blast Team</p>
       </section>
          <section class = "frequent-questions">
               <h2>Frequently Asked Questions</h2>
-               <p>Everything you need to know about Block Blast</p>
+          <div class ="frequent-question-grid">
              <div class = "frequent-question-card">
                 <h3>How do I play Block Blast?</h3>
                <p>Simply click on groups of two or more adjacent blocks of the same color to clear them from the board. The more blocks you match, the higher your score. Create combos for bonus points!</p>
@@ -329,7 +507,14 @@
               <h3>What should I do if I get stuck?</h3>
                  <p>Look for matches at the bottom of the board first. Creating matches lower down can trigger chain reactions and open up new possibilities. If no moves are available, the board will automatically refresh.</p>
            </div>
+          </div>
          </section>
+    <section class="brainstorm">
+           <div class ="container">
+         <p>block blast game</p>
+        <a href = "#" class = "btn"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="comments" class="svg-inline--fa fa-comments " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 38.6 14.7 74.3 39.6 103.4c-3.5 9.4-8.7 17.7-14.2 24.7c-4.8 6.2-9.7 11-13.3 14.3c-1.8 1.6-3.3 2.9-4.3 3.7c-.5 .4-.9 .7-1.1 .8l-.2 .2 0 0 0 0C1 327.2-1.4 334.4 .8 340.9S9.1 352 16 352c21.8 0 43.8-5.6 62.1-12.5c9.2-3.5 17.8-7.4 25.3-11.4C134.1 343.3 169.8 352 208 352zM448 176c0 112.3-99.1 196.9-216.5 207C255.8 457.4 336.4 512 432 512c38.2 0 73.9-8.7 104.7-23.9c7.5 4 16 7.9 25.2 11.4c18.3 6.9 40.3 12.5 62.1 12.5c6.9 0 13.1-4.5 15.2-11.1c2.1-6.6-.2-13.8-5.8-17.9l0 0 0 0-.2-.2c-.2-.2-.6-.4-1.1-.8c-1-.8-2.5-2-4.3-3.7c-3.6-3.3-8.5-8.1-13.3-14.3c-5.5-7-10.7-15.4-14.2-24.7c24.9-29 39.6-64.7 39.6-103.4c0-92.8-84.9-168.9-192.6-175.5c.4 5.1 .6 10.3 .6 15.5z"></path></svg>See BrainSTORMing Process</a>
+            </div>
+       </section>
     <footer class="footer">
           <div >
               <p style = "color: #e5e5e5;">Block Blast</p>
@@ -359,6 +544,7 @@
              </div>
          </div>
     </footer>
-    </div>
+  </div>
+      <button class="btn tooltip tooltip-left w-12 transition-opacity duration-200 opacity-100 visible fixed bottom-20 right-4 md:right-8" data-tip="Back to top"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-up" class="svg-inline--fa fa-arrow-up fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path></svg></button><button class="btn tooltip tooltip-left w-12 fixed bottom-4 right-4 md:right-8" data-tip="Show as PDF"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="file-pdf" class="svg-inline--fa fa-file-pdf fa-lg " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 464l48 0 0 48-48 0c-35.3 0-64-28.7-64-64L0 64C0 28.7 28.7 0 64 0L229.5 0c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3L384 304l-48 0 0-144-80 0c-17.7 0-32-14.3-32-32l0-80L64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"></path></svg></button>
 </body>
 </html>

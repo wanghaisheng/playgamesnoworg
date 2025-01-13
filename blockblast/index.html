@@ -1,0 +1,1977 @@
+
+<html>
+<head>
+    <base href=".">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Blast - Match, Blast &amp; Challenge Your Mind</title>
+    <meta name="description" content="Experience the most addictive block-matching puzzle game of 2024. Match blocks, compete for high scores, and unlock powerful combos.">
+    <meta property="og:title" content="Block Blast - Mind-Bending Puzzle Game">
+    <meta property="og:description" content="Challenge your cognitive skills with Block Blast - the ultimate block-matching puzzle experience!">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            /* Primary Colors */
+            --primary-bg: #171a33;  
+            --secondary-bg: #292d4c; 
+            --tertiary-bg: #1c3b5a; 
+            --accent-color: #ffdd30;  
+            
+            /* Interactive Elements */
+            --button-bg: #4ECDC4; 
+            --button-hover: #45B7D1; 
+            --card-bg: #3063A0; 
+
+            /* Text Colors */
+            --text-primary: #fff;
+            --text-secondary: #gray-300;
+            --text-accent: #ffdd30;
+
+            /* Gradients */
+            --hero-gradient: linear-gradient(to bottom, #171a33, #292d4c);
+            --link-gradient: linear-gradient(to right, transparent, #FFD700, transparent);
+        }
+
+        body { 
+            font-family: 'Arial', sans-serif; 
+            background-color: var(--primary-bg); 
+            color: var(--text-primary); 
+        }
+        
+        .section-title {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            background-color: var(--button-bg);
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+        }
+        
+        .game-grid {
+            display: grid;
+            gap: 5px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .game-block {
+            aspect-ratio: 1/1;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .game-block:hover {
+            transform: scale(1.05);
+        }
+        .power-ups {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .power-up {
+            background-color: var(--button-bg);
+            color: var(--primary-bg);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .power-up:hover {
+            background-color: var(--button-hover);
+        }
+        .hero {
+            background-image: var(--hero-gradient);
+            padding: 100px 20px;
+            text-align: center;
+            color: var(--text-primary);
+        }
+        .features {
+            background-color: var(--secondary-bg);
+            padding: 4rem 2rem;
+        }
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .feature-tooltip {
+            position: absolute;
+            background-color: var(--primary-bg);
+            padding: 10px;
+            border-radius: 5px;
+            visibility: hidden;
+            width: 200px;
+        }
+        .feature:hover .feature-tooltip {
+            visibility: visible;
+        }
+
+        .reviews {
+            background-color: var(--tertiary-bg);
+            padding: 4rem 2rem;
+        }
+        .review {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .review:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .review-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--button-bg);
+            margin-bottom: 1rem;
+        }
+        .review-rating {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        .reviewer-verified {
+            color: var(--button-bg);
+        }
+        .reviewer-name {
+            font-weight: bold;
+        }
+        .reviewer-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .pro-tips {
+            background-color: var(--secondary-bg);
+            padding: 4rem 2rem;
+        }
+        .pro-tip {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+        .pro-tip:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .pro-tip-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            align-self: center;
+        }
+        .pro-tip-overlay {
+            position: absolute;
+            background-color: var(--primary-bg);
+            padding: 10px;
+            border-radius: 5px;
+            visibility: hidden;
+            width: 200px;
+        }
+        .pro-tip:hover .pro-tip-overlay {
+            visibility: visible;
+        }
+
+        .game-container {
+            background-color: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            position: relative;
+            min-height: 600px;
+        }
+        .game-stats-panel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background-color: var(--card-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .stat-card h4 {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .stat-card span {
+            font-size: 1.5rem;
+        }
+        .achievement-notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--button-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            color: var(--primary-bg);
+            font-weight: bold;
+        }
+        .error-notification {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .dynamic-section {
+            background-color: var(--tertiary-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .dynamic-section-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .dynamic-section-content {
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: var(--secondary-bg);
+        }
+        .interactive-section {
+            background-color: var(--primary-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .interactive-section-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .interactive-section-content {
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: var(--secondary-bg);
+        }
+        .visual-element {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--button-bg);
+            margin-bottom: 1rem;
+        }
+        .game-mode-button {
+            background-color: var(--button-bg);
+            color: var(--primary-bg);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .game-mode-button:hover {
+            background-color: var(--button-hover);
+        }
+        .difficulty-button {
+            background-color: var(--button-bg);
+            color: var(--primary-bg);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .difficulty-button:hover {
+            background-color: var(--button-hover);
+        }
+        .scoring-mechanic {
+            background-color: var(--secondary-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .scoring-mechanic h4 {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .scoring-mechanic span {
+            font-size: 1.5rem;
+        }
+        .achievement-system {
+            background-color: var(--tertiary-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .achievement-system-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .achievement-system-content {
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: var(--secondary-bg);
+        }
+        .visual-reward {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--button-bg);
+            margin-bottom: 1rem;
+        }
+        .feature-detection {
+            background-color: var(--primary-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .feature-detection-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .feature-detection-content {
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: var(--secondary-bg);
+        }
+        .game-settings {
+            background-color: var(--tertiary-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .game-settings-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .game-settings-content {
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: var(--secondary-bg);
+        }
+        .interactive-tutorial {
+            background-color: var(--primary-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .interactive-tutorial-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .interactive-tutorial-content {
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: var(--secondary-bg);
+        }
+        
+        .slider-container {
+            touch-action: pan-y pinch-zoom;
+        }
+
+        .slider {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        .slider-nav {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .slider-nav:hover {
+            opacity: 1;
+        }
+
+        .dot.active {
+            background-color: #FFD700;
+        }
+
+        @media (max-width: 640px) {
+            .slider-nav {
+                display: none;
+            }
+            
+            .slider-container {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        .slide {
+            opacity: 0.7;
+            transform: scale(0.9);
+            transition: all 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .difficulty-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .difficulty-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .difficulty-card:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .difficulty-card.selected {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 221, 48, 0.3);
+        }
+        
+        #game-results {
+            backdrop-filter: blur(4px);
+        }
+        
+        #game-results .bg-gray-800 {
+            border: 2px solid rgba(255, 221, 48, 0.3);
+        }
+        
+        .game-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .game-card:hover::after {
+            transform: translateX(100%);
+        }
+
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .recommended-games {
+            position: relative;
+        }
+
+        .recommended-games::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #FFD700, transparent);
+        }
+        
+        .section-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .feature-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .slide-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            margin: 1rem auto;
+            border-radius: 6px;
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .slide-image {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            padding: 1rem;
+            color: white;
+        }
+
+        .slide-overlay h3 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-overlay p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .tiktok-feed-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .tiktok-video-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .tiktok-video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .tiktok-video-wrapper {
+            position: relative;
+            padding-bottom: 177.77%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+
+        .tiktok-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .tiktok-video-info {
+            padding: 1rem;
+        }
+
+        .tiktok-creator {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .tiktok-creator img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .tiktok-stats {
+            display: flex;
+            gap: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+    <header class="text-center py-10">
+        <h1 class="text-4xl font-bold text-yellow-400">BLOCK BLAST</h1>
+        <p class="text-xl mt-4">Match, Blast &amp; Challenge Your Mind!</p>
+    </header>
+
+    <section class="gameplay-embed">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-yellow-400 mb-8">Play Block Blast Online</h2>
+            <div class="iframe-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px; margin: 0 auto;">
+                <iframe src="https://blockblastonline.com/1.embed" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <h2 class="text-3xl font-bold">Welcome to Block Blast</h2>
+        <p class="text-lg">The ultimate puzzle game that challenges your mind and reflexes.</p>
+    </section>
+
+    <section class="game-modes-section bg-gray-900 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-yellow-400 mb-8">Game Modes &amp; Difficulty Levels</h2>
+            <div class="difficulty-selection mt-6">
+                <h3 class="text-2xl text-center text-white mb-8">Select Your Challenge</h3>
+                <div class="difficulty-grid grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="difficulty-card bg-blue-900 rounded-lg p-6 hover:transform hover:scale-105 transition-all cursor-pointer" data-difficulty="easy">
+                        <div class="text-4xl text-yellow-400 mb-4"><i class="fas fa-smile"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-2">Easy Mode</h4>
+                        <p class="text-gray-300">Perfect for beginners</p>
+                        <ul class="text-gray-400 mt-4 space-y-2">
+                            <li>&#x2022; 6x6 Grid</li>
+                            <li>&#x2022; 90s Timer</li>
+                            <li>&#x2022; 4 Colors</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="difficulty-card bg-green-900 rounded-lg p-6 hover:transform hover:scale-105 transition-all cursor-pointer" data-difficulty="medium">
+                        <div class="text-4xl text-yellow-400 mb-4"><i class="fas fa-meh"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-2">Medium Mode</h4>
+                        <p class="text-gray-300">For experienced players</p>
+                        <ul class="text-gray-400 mt-4 space-y-2">
+                            <li>&#x2022; 7x7 Grid</li>
+                            <li>&#x2022; 75s Timer</li>
+                            <li>&#x2022; 5 Colors</li>
+                        </ul>
+                    </div>
+
+                    <div class="difficulty-card bg-red-900 rounded-lg p-6 hover:transform hover:scale-105 transition-all cursor-pointer" data-difficulty="hard">
+                        <div class="text-4xl text-yellow-400 mb-4"><i class="fas fa-frown"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-2">Hard Mode</h4>
+                        <p class="text-gray-300">For skilled players</p>
+                        <ul class="text-gray-400 mt-4 space-y-2">
+                            <li>&#x2022; 8x8 Grid</li>
+                            <li>&#x2022; 60s Timer</li>
+                            <li>&#x2022; 6 Colors</li>
+                        </ul>
+                    </div>
+
+                    <div class="difficulty-card bg-purple-900 rounded-lg p-6 hover:transform hover:scale-105 transition-all cursor-pointer" data-difficulty="expert">
+                        <div class="text-4xl text-yellow-400 mb-4"><i class="fas fa-dizzy"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-2">Expert Mode</h4>
+                        <p class="text-gray-300">Ultimate challenge</p>
+                        <ul class="text-gray-400 mt-4 space-y-2">
+                            <li>&#x2022; 10x10 Grid</li>
+                            <li>&#x2022; 45s Timer</li>
+                            <li>&#x2022; 8 Colors</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="game-controls mt-12 text-center">
+                    <button id="start-game" class="bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg text-xl font-bold hover:bg-yellow-600 transition-colors">
+                        Start Game <i class="fas fa-play ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Game Results Modal -->
+            <div id="game-results" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center">
+                <div class="bg-gray-800 p-8 rounded-xl max-w-md w-full mx-4">
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-4">Game Results</h3>
+                    <div class="space-y-4">
+                        <p class="text-white">Score: <span id="final-score" class="text-2xl font-bold"></span></p>
+                        <p class="text-white">High Score: <span id="high-score-display" class="text-2xl font-bold"></span></p>
+                        <div class="flex justify-between gap-4 mt-6">
+                            <button id="play-again" class="flex-1 bg-yellow-500 text-gray-900 py-3 rounded-lg font-bold hover:bg-yellow-600">
+                                Play Again
+                            </button>
+                            <button id="return-menu" class="flex-1 bg-gray-600 text-white py-3 rounded-lg font-bold hover:bg-gray-700">
+                                Main Menu
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-to-play bg-gray-900 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-yellow-400 mb-8">How to Play</h2>
+            
+            <div class="slider-container relative max-w-4xl mx-auto">
+                <div class="slider overflow-hidden">
+                    <div class="slides flex transition-transform duration-500" id="slides">
+                        <div class="slide min-w-full p-6 bg-blue-900 rounded-lg">
+                            <div class="slide-content text-center">
+                                <i class="fas fa-mouse-pointer text-4xl text-yellow-400 mb-4"></i>
+                                <h3 class="text-xl font-bold text-white mb-4">1. Click Matching Blocks</h3>
+                                <p class="text-gray-300">Click on adjacent blocks of the same color to create matches</p>
+                                <div class="demo-grid grid grid-cols-3 gap-2 max-w-xs mx-auto mt-4">
+                                    <div class="w-12 h-12 rounded bg-red-500"></div>
+                                    <div class="w-12 h-12 rounded bg-red-500"></div>
+                                    <div class="w-12 h-12 rounded bg-red-500"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide min-w-full p-6 bg-green-900 rounded-lg">
+                            <div class="slide-content text-center">
+                                <i class="fas fa-bomb text-4xl text-yellow-400 mb-4"></i>
+                                <h3 class="text-xl font-bold text-white mb-4">2. Use Power-Ups</h3>
+                                <p class="text-gray-300">Activate special powers to clear blocks and boost your score</p>
+                                <div class="power-up-demo flex justify-center gap-4 mt-4">
+                                    <div class="power-up-icon w-12 h-12 rounded bg-blue-500 flex items-center justify-center">
+                                        <i class="fas fa-bolt text-white"></i>
+                                    </div>
+                                    <div class="power-up-icon w-12 h-12 rounded bg-purple-500 flex items-center justify-center">
+                                        <i class="fas fa-clock text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide min-w-full p-6 bg-purple-900 rounded-lg">
+                            <div class="slide-content text-center">
+                                <i class="fas fa-chart-line text-4xl text-yellow-400 mb-4"></i>
+                                <h3 class="text-xl font-bold text-white mb-4">3. Build Combos</h3>
+                                <p class="text-gray-300">Chain matches together to multiply your score</p>
+                                <div class="combo-demo text-2xl font-bold mt-4">
+                                    <span class="text-green-400">1x</span> &#x2192;
+                                    <span class="text-blue-400">2x</span> &#x2192;
+                                    <span class="text-purple-400">3x</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide min-w-full p-6 bg-red-900 rounded-lg">
+                            <div class="slide-content text-center">
+                                <i class="fas fa-trophy text-4xl text-yellow-400 mb-4"></i>
+                                <h3 class="text-xl font-bold text-white mb-4">4. Complete Challenges</h3>
+                                <p class="text-gray-300">Beat time trials and unlock achievements</p>
+                                <div class="achievement-demo flex justify-center gap-4 mt-4">
+                                    <div class="achievement w-12 h-12 rounded bg-yellow-500 flex items-center justify-center">
+                                        <i class="fas fa-star text-white"></i>
+                                    </div>
+                                    <div class="achievement w-12 h-12 rounded bg-yellow-500 flex items-center justify-center">
+                                        <i class="fas fa-medal text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-nav prev absolute top-1/2 -left-12 transform -translate-y-1/2 text-4xl text-yellow-400 hover:text-yellow-300">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-nav next absolute top-1/2 -right-12 transform -translate-y-1/2 text-4xl text-yellow-400 hover:text-yellow-300">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div class="slider-dots flex justify-center gap-2 mt-6">
+                    <button class="dot w-3 h-3 rounded-full bg-gray-600 hover:bg-yellow-400 active"></button>
+                    <button class="dot w-3 h-3 rounded-full bg-gray-600 hover:bg-yellow-400"></button>
+                    <button class="dot w-3 h-3 rounded-full bg-gray-600 hover:bg-yellow-400"></button>
+                    <button class="dot w-3 h-3 rounded-full bg-gray-600 hover:bg-yellow-400"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">Game Features</h2>
+        <div class="game-features-grid grid grid-cols-3 gap-4">
+            <div class="feature">
+                <div class="feature-icon">&#x1f3ae;</div>
+                <h3 class="font-bold mb-2">Addictive Gameplay</h3>
+                <p>Master block matching with intuitive controls and dynamic challenges.</p>
+                <div class="feature-tooltip">Challenge your brain&apos;s pattern recognition capabilities</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#x23f1;&#xfe0f;</div>
+                <h3 class="font-bold mb-2">Multiple Game Modes</h3>
+                <p>Classic, and strategic Puzzle Mode for varied experiences.</p>
+                <div class="feature-tooltip">Explore different modes to find your favorite</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#x1f4a5;</div>
+                <h3 class="font-bold mb-2">Advanced Power-Ups</h3>
+                <p>Unlock special abilities to turn the tide and maximize your score.</p>
+                <div class="feature-tooltip">Use power-ups strategically to boost your score</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#x1f9e9;</div>
+                <h3 class="font-bold mb-2">Cognitive Challenge</h3>
+                <p>Improve problem-solving skills and spatial reasoning through strategic block matching.</p>
+                <div class="feature-tooltip">Challenge your brain&apos;s pattern recognition capabilities</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="game-container">
+        <div id="game-grid" class="game-grid disabled">
+            <!-- Dynamically generated game blocks will go here -->
+        </div>
+    </section>
+
+    <section class="game-mechanics-section bg-gray-900 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-yellow-400 mb-8">Game Mechanics Explained</h2>
+            
+            <div class="game-mechanics-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="game-mechanic-card bg-blue-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg">
+                    <div class="mechanic-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Block Matching</h3>
+                    <p class="text-gray-300 mb-6">
+                        Match at least 3 blocks of the same color to clear them and earn points. 
+                        Larger matches create bigger combos and higher scores.
+                    </p>
+                    <ul class="text-gray-400 mb-6 space-y-2">
+                        <li>&#x2022; Minimum 3 blocks for a match</li>
+                        <li>&#x2022; Horizontal and vertical connections</li>
+                        <li>&#x2022; Cascading block replacements</li>
+                    </ul>
+                </div>
+                
+                <div class="game-mechanic-card bg-green-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg">
+                    <div class="mechanic-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Combo System</h3>
+                    <p class="text-gray-300 mb-6">
+                        Create consecutive matches to build your combo multiplier. 
+                        Higher combos exponentially increase your score potential.
+                    </p>
+                    <ul class="text-gray-400 mb-6 space-y-2">
+                        <li>&#x2022; Combo multiplier starts at 1x</li>
+                        <li>&#x2022; Max multiplier: 5x</li>
+                        <li>&#x2022; Maintains multiplier with quick matches</li>
+                    </ul>
+                </div>
+                
+                <div class="game-mechanic-card bg-purple-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg">
+                    <div class="mechanic-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Power-Up Dynamics</h3>
+                    <p class="text-gray-300 mb-6">
+                        Strategic use of limited power-ups can dramatically shift 
+                        game dynamics and help you overcome challenging situations.
+                    </p>
+                    <ul class="text-gray-400 mb-6 space-y-2">
+                        <li>&#x2022; Bomb: Clear entire row</li>
+                        <li>&#x2022; Color Change: Transform block colors</li>
+                        <li>&#x2022; Time Freeze: Pause game timer</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="advanced-mechanics mt-12 text-center">
+                <h3 class="text-2xl text-white mb-6">Advanced Game Mechanics</h3>
+                <p class="text-gray-300 max-w-2xl mx-auto mb-8">
+                    As you progress, the game introduces more complex mechanics that 
+                    challenge your strategic thinking and block-matching skills.
+                </p>
+                
+                <div class="advanced-mechanics-grid grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="advanced-mechanic bg-blue-800 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Level Progression</h4>
+                        <p class="text-gray-300">Unlock harder challenges with increasing block complexity</p>
+                    </div>
+                    <div class="advanced-mechanic bg-green-800 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Dynamic Grid</h4>
+                        <p class="text-gray-300">Grid size and block colors change with difficulty</p>
+                    </div>
+                    <div class="advanced-mechanic bg-purple-800 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Time Management</h4>
+                        <p class="text-gray-300">Limited time adds pressure and strategic depth</p>
+                    </div>
+                    <div class="advanced-mechanic bg-blue-800 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Cognitive Benefits</h4>
+                        <p class="text-gray-300">Improve spatial reasoning, problem-solving, and memory skills through gameplay.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="power-ups-section bg-gray-900 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-yellow-400 mb-8">Power-Ups &amp; Advanced Strategies</h2>
+            <p class="text-center text-white max-w-2xl mx-auto mb-12">
+                Master the art of strategic power-up usage to transform your gameplay and maximize your scoring potential.
+            </p>
+
+            <div class="power-up-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="power-up-card bg-blue-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg">
+                    <div class="power-up-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fas fa-bomb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Bomb Power-Up</h3>
+                    <p class="text-gray-300 mb-6">
+                        Strategically clear an entire row of blocks, creating cascading opportunities for massive combos.
+                    </p>
+                    <ul class="text-gray-400 mb-6 space-y-2">
+                        <li>&#x2022; Clear entire row instantly</li>
+                        <li>&#x2022; Break challenging block configurations</li>
+                        <li>&#x2022; Limited uses per game</li>
+                    </ul>
+                    <div class="power-up-details flex justify-between items-center">
+                        <span class="text-green-400 font-bold">Remaining: <span id="bomb-power-up-count">3</span></span>
+                        <button class="bg-yellow-500 text-gray-900 px-4 py-2 rounded hover:bg-yellow-600">Use</button>
+                    </div>
+                </div>
+
+                <div class="power-up-card bg-green-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg">
+                    <div class="power-up-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Color Change Power-Up</h3>
+                    <p class="text-gray-300 mb-6">
+                        Transform block colors to create unexpected match opportunities and break challenging gridlocks.
+                    </p>
+                    <ul class="text-gray-400 mb-6 space-y-2">
+                        <li>&#x2022; Change block colors dynamically</li>
+                        <li>&#x2022; Create new match possibilities</li>
+                        <li>&#x2022; Strategic block manipulation</li>
+                    </ul>
+                    <div class="power-up-details flex justify-between items-center">
+                        <span class="text-green-400 font-bold">Remaining: <span id="color-change-power-up-count">2</span></span>
+                        <button class="bg-yellow-500 text-gray-900 px-4 py-2 rounded hover:bg-yellow-600">Use</button>
+                    </div>
+                </div>
+
+                <div class="power-up-card bg-purple-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg">
+                    <div class="power-up-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Time Freeze Power-Up</h3>
+                    <p class="text-gray-300 mb-6">
+                        Pause the game timer to analyze the grid, plan complex matches, and strategize your next move.
+                    </p>
+                    <ul class="text-gray-400 mb-6 space-y-2">
+                        <li>&#x2022; Freeze game timer temporarily</li>
+                        <li>&#x2022; Plan complex block strategies</li>
+                        <li>&#x2022; Reduce time pressure</li>
+                    </ul>
+                    <div class="power-up-details flex justify-between items-center">
+                        <span class="text-green-400 font-bold">Remaining: <span id="time-freeze-power-up-count">1</span></span>
+                        <button class="bg-yellow-500 text-gray-900 px-4 py-2 rounded hover:bg-yellow-600">Use</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="power-up-strategies mt-12">
+                <h3 class="text-2xl text-center text-white mb-8">Advanced Power-Up Strategies</h3>
+                <div class="strategies-grid grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="strategy-card bg-blue-800 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Timing is Key</h4>
+                        <p class="text-gray-300">Use power-ups at critical moments to maximize their impact</p>
+                    </div>
+                    <div class="strategy-card bg-green-800 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Combo Potential</h4>
+                        <p class="text-gray-300">Leverage power-ups to create massive combo chains</p>
+                    </div>
+                    <div class="strategy-card bg-purple-800 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Resource Management</h4>
+                        <p class="text-gray-300">Conserve power-ups for high-stakes game situations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="community-section bg-gray-900 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-yellow-400 mb-8">Community &amp; Social Interaction</h2>
+            <p class="text-center text-white max-w-2xl mx-auto mb-12">
+                Connect, compete, and collaborate with Block Blast players worldwide. 
+                Share strategies, participate in events, and be part of our growing community.
+            </p>
+            
+            <div class="community-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="community-card bg-blue-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg">
+                    <div class="community-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Discord Community</h3>
+                    <p class="text-gray-300 mb-6">
+                        Join our official Discord server to chat with players, share tips, 
+                        participate in tournaments, and get the latest game updates.
+                    </p>
+                    <a href="https://discord.gg/blockblast" target="_blank" class="bg-yellow-500 text-gray-900 px-4 py-2 rounded hover:bg-yellow-600 inline-block">
+                        Join Discord
+                    </a>
+                </div>
+                
+                <div class="community-card bg-green-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg">
+                    <div class="community-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fab fa-reddit"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Reddit Community</h3>
+                    <p class="text-gray-300 mb-6">
+                        Connect with Block Blast enthusiasts on Reddit. Share strategies, 
+                        discuss game mechanics, and participate in community challenges.
+                    </p>
+                    <a href="https://reddit.com/r/blockblast" target="_blank" class="bg-yellow-500 text-gray-900 px-4 py-2 rounded hover:bg-yellow-600 inline-block">
+                        Visit Subreddit
+                    </a>
+                </div>
+                
+                <div class="community-card bg-purple-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg">
+                    <div class="community-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Facebook Group</h3>
+                    <p class="text-gray-300 mb-6">
+                        Join our Facebook group to connect with players, share achievements, 
+                        and stay updated on community events and game news.
+                    </p>
+                    <a href="https://facebook.com/groups/blockblast" target="_blank" class="bg-yellow-500 text-gray-900 px-4 py-2 rounded hover:bg-yellow-600 inline-block">
+                        Join Facebook Group
+                    </a>
+                </div>
+            </div>
+            
+            <div class="community-events mt-16">
+                <h3 class="text-2xl text-center text-white mb-8">Upcoming Community Events</h3>
+                <div class="events-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="event-card bg-blue-800 rounded-lg p-6">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Global Tournament</h4>
+                        <p class="text-gray-300 mb-4">Compete for top leaderboard spots and exclusive rewards.</p>
+                        <span class="text-green-400">Next Event: July 15th</span>
+                    </div>
+                    <div class="event-card bg-green-800 rounded-lg p-6">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Strategy Workshop</h4>
+                        <p class="text-gray-300 mb-4">Learn advanced techniques from top Block Blast players.</p>
+                        <span class="text-green-400">Next Workshop: August 5th</span>
+                    </div>
+                    <div class="event-card bg-purple-800 rounded-lg p-6">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Community Challenge</h4>
+                        <p class="text-gray-300 mb-4">Monthly challenge with unique game objectives.</p>
+                        <span class="text-green-400">Next Challenge: September 1st</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="high-score-section bg-gray-900 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-yellow-400 mb-8">High Score Block Blast Challenge</h2>
+            <div class="instructions-grid grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div class="instructions bg-blue-900 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">How to Play</h3>
+                    <ol class="text-gray-300 space-y-4">
+                        <li class="flex items-start">
+                            <span class="font-bold text-yellow-400 mr-2">1.</span>
+                            <p>Click adjacent blocks of the same color to select them. You need at least 3 matching blocks to make a valid move.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="font-bold text-yellow-400 mr-2">2.</span>
+                            <p>Selected blocks will disappear, and blocks above will fall down to fill empty spaces. New blocks will appear from the top.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="font-bold text-yellow-400 mr-2">3.</span>
+                            <p>Chain multiple matches together to create combos and earn bonus points. Higher combos mean higher scores!</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="font-bold text-yellow-400 mr-2">4.</span>
+                            <p>Use power-ups strategically to clear difficult sections or boost your score multiplier.</p>
+                        </li>
+                    </ol>
+                </div>
+                <div class="tips bg-green-900 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">Pro Tips</h3>
+                    <ul class="text-gray-300 space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                            <p>Look for opportunities to create large block clusters before making your move.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                            <p>Pay attention to blocks above when clearing - plan ahead for cascading matches.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                            <p>Save power-ups for when you&apos;re stuck or need to clear a large section quickly.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                            <p>Practice timing your moves to maximize combo potential and score multipliers.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ai-analysis bg-purple-900 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">
+                        <i class="fas fa-robot text-yellow-400 mr-2"></i>
+                        AI Game Analysis
+                    </h3>
+                    <p class="text-gray-300 mb-4">
+                        Our AI assistant can analyze your gameplay screenshots and provide:
+                    </p>
+                    <ul class="text-gray-300 space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-400 mt-1 mr-2"></i>
+                            <p>Step-by-step move recommendations</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-400 mt-1 mr-2"></i>
+                            <p>Pattern recognition insights</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-400 mt-1 mr-2"></i>
+                            <p>Suggested combo opportunities</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-400 mt-1 mr-2"></i>
+                            <p>Strategic improvement tips</p>
+                        </li>
+                    </ul>
+                    <button id="analyze-screenshot" class="mt-6 bg-yellow-500 text-gray-900 px-4 py-2 rounded hover:bg-yellow-600 w-full flex items-center justify-center">
+                        <i class="fas fa-camera mr-2"></i>
+                        Analyze Screenshot
+                    </button>
+                </div>
+            </div>
+            <div class="iframe-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px; margin: 0 auto;">
+                <iframe src="https://block-blast.io/game/block-blast-solver/" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="high-score-description text-center text-white mt-8">
+                <p>Test your skills in the ultimate Block Blast High Score Challenge! Can you beat the top players?</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="recommended-games bg-gray-900 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-yellow-400 mb-8">More Games You&apos;ll Love</h2>
+            
+            <div class="recommended-games-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="game-card bg-blue-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg cursor-pointer">
+                    <div class="game-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Pattern Master</h3>
+                    <p class="text-gray-300 mb-6">
+                        Test your pattern recognition skills in this mesmerizing puzzle game.
+                    </p>
+                    <a href="https://pattern-master.com" class="bg-yellow-500 text-gray-900 px-4 py-2 rounded hover:bg-yellow-600 inline-block">
+                        Play Now
+                    </a>
+                </div>
+
+                <div class="game-card bg-green-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg cursor-pointer">
+                    <div class="game-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Color Crush</h3>
+                    <p class="text-gray-300 mb-6">
+                        Match and crush colorful blocks in this fast-paced arcade game.
+                    </p>
+                    <a href="https://color-crush.com" class="bg-yellow-500 text-gray-900 px-4 py-2 rounded hover:bg-yellow-600 inline-block">
+                        Play Now
+                    </a>
+                </div>
+
+                <div class="game-card bg-purple-900 rounded-lg p-6 transform transition-all hover:scale-105 hover:shadow-lg cursor-pointer">
+                    <div class="game-icon text-4xl text-yellow-400 mb-4">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Memory Match</h3>
+                    <p class="text-gray-300 mb-6">
+                        Challenge your memory with this addictive card matching game.
+                    </p>
+                    <a href="https://memory-match.com" class="bg-yellow-500 text-gray-900 px-4 py-2 rounded hover:bg-yellow-600 inline-block">
+                        Play Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="more-games mt-12 text-center">
+                <h3 class="text-2xl text-white mb-6">Why You&apos;ll Love These Games</h3>
+                <div class="features-grid grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="feature-card bg-blue-800 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Brain Training</h4>
+                        <p class="text-gray-300">Improve cognitive skills while having fun</p>
+                    </div>
+                    <div class="feature-card bg-green-800 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Family Friendly</h4>
+                        <p class="text-gray-300">Safe and enjoyable for all ages</p>
+                    </div>
+                    <div class="feature-card bg-purple-800 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Free to Play</h4>
+                        <p class="text-gray-300">No hidden costs or subscriptions</p>
+                    </div>
+                    <div class="feature-card bg-red-800 p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">Regular Updates</h4>
+                        <p class="text-gray-300">New content and features added regularly</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tiktok-feed-section bg-gray-900 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-yellow-400 mb-8">TikTok Highlights</h2>
+            <p class="text-center text-white max-w-2xl mx-auto mb-12">
+                Watch amazing Block Blast gameplay, tips and tricks from our TikTok community!
+            </p>
+
+            <div class="tiktok-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div id="tiktok-feed" class="tiktok-feed-container">
+                    <!-- TikTok videos will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8 mt-8">
+        <div class="container mx-auto px-4 grid md:grid-cols-4 gap-6">
+            <div>
+                <h3 class="font-bold mb-4">Block Blast</h3>
+                <p>The ultimate puzzle game that challenges your mind and reflexes.</p>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Quick Links</h3>
+                <ul>
+                    <li><a href="#" class="hover:text-yellow-400">How to Play</a></li>
+                    <li><a href="#" class="hover:text-yellow-400">Leaderboard</a></li>
+                    <li><a href="#" class="hover:text-yellow-400">Updates</a></li>
+                    <li><a href="#" class="hover:text-yellow-400">Support</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Community</h3>
+                <ul>
+                    <li><a href="#" class="hover:text-yellow-400">Discord</a></li>
+                    <li><a href="#" class="hover:text-yellow-400">Reddit</a></li>
+                    <li><a href="#" class="hover:text-yellow-400">Facebook</a></li>
+                    <li><a href="#" class="hover:text-yellow-400">Twitter</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Newsletter</h3>
+                <form class="flex">
+                    <input type="email" placeholder="Enter your email" class="p-2 rounded-l bg-gray-700 text-white flex-grow">
+                    <button class="bg-yellow-500 text-gray-900 px-4 py-2 rounded-r">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center mt-8 text-sm">
+            2024 Block Blast. All Rights Reserved.
+        </div>
+        <div class="text-center mt-2 text-sm">
+            <a href="#" class="hover:text-yellow-400">Privacy Policy</a> | <a href="#" class="hover:text-yellow-400">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script>const GAME_CONFIGURATIONS = {
+  difficulties: {
+    easy: {
+      gridSize: 6,
+      timeLimit: 90,
+      blockColors: 4,
+      comboThreshold: 3
+    },
+    hard: {
+      gridSize: 8,
+      timeLimit: 60,
+      blockColors: 6,
+      comboThreshold: 5
+    },
+    expert: {
+      gridSize: 10,
+      timeLimit: 45,
+      blockColors: 8,
+      comboThreshold: 7
+    },
+    medium: {
+      gridSize: 7,
+      timeLimit: 75,
+      blockColors: 5,
+      comboThreshold: 4
+    }
+  },
+  powerUpLimits: {
+    colorChange: 2,
+    timeFreeze: 1
+  },
+  advancedMechanics: {
+    levelProgression: {
+      description: 'Unlock harder challenges with increasing block complexity',
+      levelThresholds: [500, 2000, 5000, 10000]
+    },
+    dynamicGrid: {
+      description: 'Grid size and block colors change with difficulty',
+      gridSizeMultipliers: {
+        easy: 1,
+        medium: 1.2,
+        hard: 1.5,
+        expert: 2
+      }
+    },
+    timeManagement: {
+      description: 'Limited time adds pressure and strategic depth',
+      timeReductionFactors: {
+        easy: 1,
+        medium: 0.9,
+        hard: 0.75,
+        expert: 0.6
+      }
+    }
+  }
+};
+const PAGE_CONFIG = {
+  sections: {
+    hero: {
+      title: "Block Blast",
+      subtitle: "Match, Blast & Challenge Your Mind",
+      image: null
+    },
+    howToPlay: {
+      title: "How to Play",
+      slides: [{
+        title: "Start Matching Blocks",
+        description: "Find and click on adjacent blocks that share the same color. You need at least 3 matching blocks to create a valid combination.",
+        image: "/images/match-blocks.png"
+      }, {
+        title: "Power Up Your Game",
+        description: "Use special power-ups strategically to clear difficult sections and boost your score performance.",
+        image: "/images/power-ups.jpg"
+      }, {
+        title: "Chain Reaction Combos",
+        description: "Create consecutive matches to build powerful combo chains and multiply your points exponentially.",
+        image: null
+      }, {
+        title: "Master the Challenge",
+        description: "Complete increasingly difficult levels by clearing blocks before time runs out.",
+        image: "/images/challenges.png"
+      }]
+    },
+    features: {
+      title: "Game Features",
+      cards: [{
+        icon: "puzzle-piece",
+        title: "Addictive Gameplay",
+        description: "Master block matching with intuitive controls",
+        image: "/images/gameplay.jpg"
+      }, {
+        icon: "clock",
+        title: "Multiple Game Modes",
+        description: "Classic and Puzzle modes for varied experiences",
+        image: null
+      }, {
+        icon: "bolt",
+        title: "Advanced Power-Ups",
+        description: "Unlock special abilities to maximize score",
+        image: "/images/power-ups-2.png"
+      }]
+    },
+    tiktokFeed: {
+      title: "TikTok Highlights",
+      description: "Watch amazing Block Blast gameplay, tips and tricks from our TikTok community!"
+    }
+  }
+};
+class ImageSlider {
+  constructor() {
+    this.currentSlide = 0;
+    this.slides = document.querySelector('#slides');
+    this.slideElements = document.querySelectorAll('.slide');
+    this.dots = document.querySelectorAll('.dot');
+    this.prevButton = document.querySelector('.slider-nav.prev');
+    this.nextButton = document.querySelector('.slider-nav.next');
+    this.totalSlides = this.slideElements.length;
+    this.isAnimating = false;
+    this.touchStartX = 0;
+    this.touchEndX = 0;
+    this.initializeSlider();
+  }
+  initializeSlider() {
+    this.prevButton?.addEventListener('click', () => this.changeSlide('prev'));
+    this.nextButton?.addEventListener('click', () => this.changeSlide('next'));
+    this.dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => this.goToSlide(index));
+    });
+    this.slides.addEventListener('touchstart', e => {
+      this.touchStartX = e.changedTouches[0].screenX;
+    });
+    this.slides.addEventListener('touchend', e => {
+      this.touchEndX = e.changedTouches[0].screenX;
+      this.handleSwipe();
+    });
+    setInterval(() => {
+      if (!document.hidden) {
+        this.changeSlide('next');
+      }
+    }, 5000);
+    this.updateSlideStates();
+  }
+  handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = this.touchStartX - this.touchEndX;
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        this.changeSlide('next');
+      } else {
+        this.changeSlide('prev');
+      }
+    }
+  }
+  changeSlide(direction) {
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+    const movement = direction === 'next' ? 1 : -1;
+    this.currentSlide = (this.currentSlide + movement + this.totalSlides) % this.totalSlides;
+    this.updateSlideStates();
+    setTimeout(() => {
+      this.isAnimating = false;
+    }, 500);
+  }
+  goToSlide(index) {
+    if (this.isAnimating || index === this.currentSlide) return;
+    this.currentSlide = index;
+    this.updateSlideStates();
+  }
+  updateSlideStates() {
+    const offset = -100 * this.currentSlide;
+    this.slides.style.transform = `translateX(${offset}%)`;
+    this.dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === this.currentSlide);
+    });
+    this.slideElements.forEach((slide, index) => {
+      slide.classList.toggle('active', index === this.currentSlide);
+      const slideData = PAGE_CONFIG.sections.howToPlay.slides[index];
+      const slideContent = slide.querySelector('.slide-content');
+      if (slideData.image) {
+        const imageEl = slide.querySelector('.slide-image') || document.createElement('img');
+        imageEl.src = slideData.image;
+        imageEl.classList.add('slide-image');
+        if (!slide.querySelector('.slide-image')) {
+          slideContent.appendChild(imageEl);
+        }
+        let overlay = slide.querySelector('.slide-overlay');
+        if (!overlay) {
+          overlay = document.createElement('div');
+          overlay.classList.add('slide-overlay');
+          slideContent.appendChild(overlay);
+        }
+        overlay.innerHTML = `
+          <h3>${slideData.title}</h3>
+          <p>${slideData.description}</p>
+        `;
+      } else {
+        const overlay = slide.querySelector('.slide-overlay');
+        if (overlay) {
+          overlay.remove();
+        }
+      }
+    });
+  }
+}
+class BlockBlastGame {
+  constructor(options = {}) {
+    this.difficulty = 'easy';
+    this.difficulties = {
+      ...GAME_CONFIGURATIONS.difficulties,
+      medium: {
+        gridSize: 7,
+        timeLimit: 75,
+        blockColors: 5,
+        comboThreshold: 4
+      }
+    };
+    this.gridSize = this.difficulties[this.difficulty].gridSize;
+    this.timeLimit = this.difficulties[this.difficulty].timeLimit;
+    this.blockColors = this.difficulties[this.difficulty].blockColors;
+    this.comboThreshold = this.difficulties[this.difficulty].comboThreshold;
+    this.score = 0;
+    this.highScore = 0;
+    this.gameTimer = this.timeLimit;
+    this.currentLevel = 1;
+    this.powerUps = {
+      colorChange: GAME_CONFIGURATIONS.powerUpLimits.colorChange,
+      timeFreeze: GAME_CONFIGURATIONS.powerUpLimits.timeFreeze
+    };
+    this.levelUpThresholds = [];
+    this.gameStarted = false;
+    this.gameEnded = false;
+    this.initializeGameState(this.difficulties[this.difficulty]);
+  }
+  initializeGameState(config) {
+    this.gridSize = config.gridSize;
+    this.timeLimit = config.timeLimit;
+    this.blockColors = config.blockColors;
+    this.comboThreshold = config.comboThreshold;
+    const advancedMechanics = GAME_CONFIGURATIONS.advancedMechanics;
+    this.gridSize = Math.floor(this.gridSize * (advancedMechanics.dynamicGrid.gridSizeMultipliers[this.difficulty] || 1));
+    this.timeLimit = Math.floor(this.timeLimit * (advancedMechanics.timeManagement.timeReductionFactors[this.difficulty] || 1));
+    const levelThresholds = advancedMechanics.levelProgression.levelThresholds;
+    this.levelUpThresholds = levelThresholds.map((threshold, index) => ({
+      threshold,
+      difficultyMultiplier: 1 + index * 0.25
+    }));
+  }
+  initializeGame() {
+    const gameGrid = document.getElementById('game-grid');
+    if (gameGrid) {
+      gameGrid.classList.add('disabled');
+    }
+    document.querySelectorAll('.difficulty-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.difficulty-card').forEach(c => c.classList.remove('ring-4', 'ring-yellow-400'));
+        card.classList.add('ring-4', 'ring-yellow-400');
+        this.selectedDifficulty = card.dataset.difficulty;
+      });
+    });
+    document.getElementById('start-game')?.addEventListener('click', () => {
+      if (this.selectedDifficulty) {
+        this.startGame(this.selectedDifficulty);
+      } else {
+        alert('Please select a difficulty level first!');
+      }
+    });
+  }
+  startGame(difficulty) {
+    this.difficulty = difficulty;
+    const config = this.difficulties[difficulty];
+    this.initializeGameState(config);
+    this.gameStarted = true;
+    this.gameEnded = false;
+    const gameGrid = document.getElementById('game-grid');
+    gameGrid.classList.remove('disabled');
+    this.generateGameGrid();
+    this.attachEventListeners();
+    this.startGameTimer();
+    this.updateGameStats();
+  }
+  generateGameGrid() {
+    const gameGrid = document.getElementById('game-grid');
+    gameGrid.innerHTML = '';
+    gameGrid.style.gridTemplateColumns = `repeat(${this.gridSize}, 1fr)`;
+    for (let i = 0; i < this.gridSize * this.gridSize; i++) {
+      const block = document.createElement('div');
+      block.classList.add('game-block');
+      block.dataset.index = i;
+      block.style.backgroundColor = this.getRandomBlockColor();
+      gameGrid.appendChild(block);
+    }
+  }
+  attachEventListeners() {
+    const gameGrid = document.getElementById('game-grid');
+    gameGrid.addEventListener('click', this.handleBlockClick.bind(this));
+  }
+  handleBlockClick(event) {
+    const block = event.target.closest('.game-block');
+    if (!block) return;
+    block.classList.add('selected');
+    this.processBlockMatch(block);
+  }
+  processBlockMatch(block) {
+    const matchedBlocks = this.findMatchingBlocks(block);
+    if (matchedBlocks.length >= this.comboThreshold) {
+      this.clearMatchedBlocks(matchedBlocks);
+      this.updateScore(matchedBlocks.length);
+    }
+  }
+  findMatchingBlocks(block) {
+    return [block];
+  }
+  clearMatchedBlocks(blocks) {
+    blocks.forEach(block => {
+      block.style.backgroundColor = this.getRandomBlockColor();
+      block.classList.remove('selected');
+    });
+  }
+  updateScore(matchCount) {
+    this.score += matchCount * 10;
+    document.getElementById('score').textContent = this.score;
+    if (this.score > this.highScore) {
+      this.highScore = this.score;
+      this.saveHighScore();
+    }
+  }
+  startGameTimer() {
+    this.timerInterval = setInterval(() => {
+      this.gameTimer--;
+      document.getElementById('game-timer').textContent = `${this.gameTimer}s`;
+      if (this.gameTimer <= 0) {
+        this.endGame();
+      }
+    }, 1000);
+  }
+  endGame() {
+    if (this.gameEnded) return;
+    this.gameEnded = true;
+    this.gameStarted = false;
+    clearInterval(this.timerInterval);
+    const gameGrid = document.getElementById('game-grid');
+    if (gameGrid) {
+      gameGrid.classList.add('disabled');
+    }
+    this.displayGameOverModal();
+  }
+  displayGameOverModal() {
+    const finalScore = this.score;
+    const highScore = this.highScore;
+    document.getElementById('final-score').textContent = finalScore.toLocaleString();
+    document.getElementById('high-score-display').textContent = highScore.toLocaleString();
+    const modal = document.getElementById('game-results');
+    modal.classList.remove('hidden');
+    document.getElementById('play-again')?.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      this.resetGame();
+      this.startGame(this.difficulty);
+    });
+    document.getElementById('return-menu')?.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      this.resetGame();
+      this.initializeGame();
+    });
+  }
+  resetGame() {
+    this.score = 0;
+    this.gameTimer = this.timeLimit;
+    this.currentLevel = 1;
+    this.powerUps = {
+      colorChange: GAME_CONFIGURATIONS.powerUpLimits.colorChange,
+      timeFreeze: GAME_CONFIGURATIONS.powerUpLimits.timeFreeze
+    };
+    const gameGrid = document.getElementById('game-grid');
+    if (gameGrid) {
+      gameGrid.innerHTML = '';
+      gameGrid.classList.add('disabled');
+    }
+    document.getElementById('score').textContent = '0';
+    document.getElementById('game-timer').textContent = `${this.timeLimit}s`;
+    document.getElementById('current-level').textContent = '1';
+    document.querySelectorAll('.difficulty-card').forEach(card => card.classList.remove('ring-4', 'ring-yellow-400'));
+    this.selectedDifficulty = null;
+  }
+  getRandomBlockColor() {
+    const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFD93D', '#6A5ACD', '#20B2AA', '#FF4500', '#32CD32'];
+    return colors[Math.floor(Math.random() * this.blockColors)];
+  }
+  updateGameStats() {
+    document.getElementById('current-level').textContent = this.currentLevel;
+  }
+  saveHighScore() {
+    localStorage.setItem('highScore', this.highScore);
+  }
+  async analyzeGameScreenshot() {
+    try {
+      const response = await fetch('/api/ai_completion', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt: `Analyze this Block Blast game screenshot and provide strategic insights.
+        
+          interface Response {
+            moves: string[];
+            patterns: string[];
+            combos: string[];
+            tips: string[];
+          }
+          
+          {
+            "moves": ["Connect red blocks in top right", "Clear blue chain in center"],
+            "patterns": ["L-shape pattern available", "Cross pattern forming"],
+            "combos": ["Potential 4x combo in bottom left", "Chain reaction possible"],
+            "tips": ["Focus on larger block clusters", "Watch for cascade opportunities"]
+          }`,
+          data: this.getGameState()
+        })
+      });
+      const analysis = await response.json();
+      this.displayAnalysis(analysis);
+    } catch (error) {
+      console.error('Screenshot analysis failed:', error);
+    }
+  }
+  displayAnalysis(analysis) {
+    const modal = document.createElement('div');
+    modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center';
+    modal.innerHTML = `
+      <div class="bg-gray-800 p-8 rounded-xl max-w-md w-full mx-4">
+        <h3 class="text-2xl font-bold text-yellow-400 mb-4">AI Analysis Results</h3>
+        <div class="space-y-4 text-white">
+          ${Object.entries(analysis).map(([category, items]) => `
+            <div>
+              <h4 class="font-bold text-yellow-400">${category.charAt(0).toUpperCase() + category.slice(1)}</h4>
+              <ul class="list-disc list-inside">
+                ${items.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+            </div>
+          `).join('')}
+        </div>
+        <button class="mt-6 bg-yellow-500 text-gray-900 px-4 py-2 rounded hover:bg-yellow-600 w-full">
+          Close
+        </button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    modal.querySelector('button').addEventListener('click', () => modal.remove());
+  }
+  getGameState() {
+    return {};
+  }
+}
+class CommunityManager {
+  constructor() {
+    this.socialLinks = {
+      discord: 'https://discord.gg/blockblast',
+      reddit: 'https://reddit.com/r/blockblast',
+      facebook: 'https://facebook.com/groups/blockblast',
+      twitter: 'https://twitter.com/blockblastgame'
+    };
+    this.communityEvents = [{
+      name: 'Global Tournament',
+      description: 'Compete for top leaderboard spots and exclusive rewards',
+      date: '2024-07-15'
+    }, {
+      name: 'Strategy Workshop',
+      description: 'Learn advanced techniques from top Block Blast players',
+      date: '2024-08-05'
+    }, {
+      name: 'Community Challenge',
+      description: 'Monthly challenge with unique game objectives',
+      date: '2024-09-01'
+    }];
+    this.recommendedGames = [{
+      name: 'Pattern Master',
+      description: 'Test your pattern recognition skills in this mesmerizing puzzle game.',
+      icon: 'puzzle-piece',
+      url: 'https://pattern-master.com',
+      background: 'bg-blue-900'
+    }, {
+      name: 'Color Crush',
+      description: 'Match and crush colorful blocks in this fast-paced arcade game.',
+      icon: 'cube',
+      url: 'https://color-crush.com',
+      background: 'bg-green-900'
+    }, {
+      name: 'Memory Match',
+      description: 'Challenge your memory with this addictive card matching game.',
+      icon: 'brain',
+      url: 'https://memory-match.com',
+      background: 'bg-purple-900'
+    }];
+  }
+  initializeSocialLinks() {
+    const socialButtons = document.querySelectorAll('.community-card a');
+    socialButtons.forEach(button => {
+      const platform = button.closest('.community-card').querySelector('.community-icon i').classList[1].split('-')[1];
+      button.href = this.socialLinks[platform];
+    });
+  }
+  trackSocialEngagement(platform) {
+    try {
+      console.log(`User engaged with ${platform} community`);
+    } catch (error) {
+      console.error('Social engagement tracking failed', error);
+    }
+  }
+  renderUpcomingEvents() {
+    const eventsContainer = document.querySelector('.events-grid');
+    if (!eventsContainer) return;
+    this.communityEvents.forEach(event => {
+      const eventCard = document.createElement('div');
+      eventCard.className = 'event-card bg-blue-800 rounded-lg p-6';
+      eventCard.innerHTML = `
+        <h4 class="text-lg font-bold text-yellow-400 mb-2">${event.name}</h4>
+        <p class="text-gray-300 mb-4">${event.description}</p>
+        <span class="text-green-400">Next Event: ${new Date(event.date).toLocaleDateString()}</span>
+      `;
+      eventsContainer.appendChild(eventCard);
+    });
+  }
+  trackGameRecommendationClick(gameName) {
+    try {
+      console.log(`User clicked recommended game: ${gameName}`);
+    } catch (error) {
+      console.error('Game recommendation tracking failed', error);
+    }
+  }
+  renderFeatureCards() {
+    const featuresContainer = document.querySelector('.game-features-grid');
+    if (!featuresContainer) return;
+    PAGE_CONFIG.sections.features.cards.forEach(feature => {
+      const featureCard = document.createElement('div');
+      featureCard.className = 'feature';
+      let imageHtml = '';
+      if (feature.image) {
+        imageHtml = `<img src="${feature.image}" class="feature-image" alt="${feature.title}">`;
+      }
+      featureCard.innerHTML = `
+        <div class="feature-icon">
+          <i class="fas fa-${feature.icon}"></i>
+        </div>
+        ${imageHtml}
+        <h3 class="font-bold mb-2">${feature.title}</h3>
+        <p>${feature.description}</p>
+      `;
+      featuresContainer.appendChild(featureCard);
+    });
+  }
+}
+class TikTokFeed {
+  constructor() {
+    this.feedContainer = document.getElementById('tiktok-feed');
+    this.videos = [{
+      embedCode: '<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@blockblast/video/1" data-video-id="1">',
+      creator: "BlockBlastOfficial",
+      title: "Insane combo chain reaction! 🔥",
+      views: "1.2M",
+      likes: "250K"
+    }, {
+      embedCode: '<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@blockblast/video/2" data-video-id="2">',
+      creator: "BlockBlastPro",
+      title: "Expert mode speedrun! New record 🏆",
+      views: "800K",
+      likes: "180K"
+    }, {
+      embedCode: '<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@blockblast/video/3" data-video-id="3">',
+      creator: "BlockBlastTips",
+      title: "Hidden power-up trick revealed 🎯",
+      views: "950K",
+      likes: "210K"
+    }];
+  }
+  init() {
+    this.renderVideos();
+    this.loadTikTokScript();
+  }
+  renderVideos() {
+    this.videos.forEach(video => {
+      const videoCard = document.createElement('div');
+      videoCard.className = 'tiktok-video-card';
+      videoCard.innerHTML = `
+        <div class="tiktok-video-wrapper">
+          ${video.embedCode}
+        </div>
+        <div class="tiktok-video-info">
+          <div class="tiktok-creator">
+            <img src="https://images.websim.ai/avatar/${video.creator}" alt="${video.creator}">
+            <span class="text-white font-bold">@${video.creator}</span>
+          </div>
+          <h3 class="text-white font-bold mb-2">${video.title}</h3>
+          <div class="tiktok-stats">
+            <span><i class="fas fa-eye"></i> ${video.views}</span>
+            <span><i class="fas fa-heart"></i> ${video.likes}</span>
+          </div>
+        </div>
+      `;
+      this.feedContainer.appendChild(videoCard);
+    });
+  }
+  loadTikTokScript() {
+    const script = document.createElement('script');
+    script.src = 'https://www.tiktok.com/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const communityManager = new CommunityManager();
+  communityManager.initializeSocialLinks();
+  communityManager.renderUpcomingEvents();
+  communityManager.renderFeatureCards();
+  document.querySelectorAll('.community-card a').forEach(link => {
+    link.addEventListener('click', e => {
+      const platform = e.currentTarget.closest('.community-card').querySelector('.community-icon i').classList[1].split('-')[1];
+      communityManager.trackSocialEngagement(platform);
+    });
+  });
+  const blockBlastGame = new BlockBlastGame();
+  blockBlastGame.initializeGame();
+  document.querySelectorAll('.game-card a').forEach(link => {
+    link.addEventListener('click', e => {
+      const gameName = e.currentTarget.closest('.game-card').querySelector('h3').textContent;
+      communityManager.trackGameRecommendationClick(gameName);
+    });
+  });
+  document.getElementById('analyze-screenshot')?.addEventListener('click', () => {
+    blockBlastGame.analyzeGameScreenshot();
+  });
+  const heroImage = PAGE_CONFIG.sections.hero.image;
+  if (heroImage) {
+    const heroSection = document.querySelector('.hero');
+    const img = document.createElement('img');
+    img.src = heroImage;
+    img.classList.add('section-image');
+    heroSection.appendChild(img);
+  }
+  const tiktokFeed = new TikTokFeed();
+  tiktokFeed.init();
+});</script>
+</body>
+</html>

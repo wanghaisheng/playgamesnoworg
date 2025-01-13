@@ -1,0 +1,1552 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg" href="/favicon.svg">
+  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Squid Game Challenge</title>
+
+<!-- Add preconnect for fonts -->
+<link href="https://fonts.gstatic.com" crossorigin rel="preconnect">
+<link href="https://fonts.googleapis.com" crossorigin rel="preconnect">
+
+<!-- Add Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,regular,500,600,700,800,900|Satisfy:regular&amp;display=auto" media="all">
+
+<!-- Add SEO meta tags -->
+<meta name="description" content="Experience the thrill of Squid Game in our immersive online challenges. Compete against AI or other players in intense mini-games that test your skills and reflexes.">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Squid Game Challenge - Online Survival Games">
+<meta property="og:description" content="Experience the thrill of Squid Game in our immersive online challenges. Compete against AI or other players in intense mini-games that test your skills and reflexes.">
+<meta property="og:url" content="https://playgamesnow.org/squidgames">
+<meta property="og:site_name" content="playgamesnow play online Games free">
+<meta property="og:image" content="https://playgamesnow.org/squidgames/squidgame-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Squid Game Challenge - Online Survival Games">
+<meta name="twitter:description" content="Experience the thrill of Squid Game in our immersive online challenges. Compete against AI or other players in intense mini-games that test your skills and reflexes.">
+<meta name="twitter:image" content="https://playgamesnow.org/squidgames/squidgame-og.png">
+
+<!-- Add favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://playgamesnow.org/squidgames/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://playgamesnow.org/squidgames/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://playgamesnow.org/squidgames/apple-touch-icon.png">
+
+<!-- Keep existing style tag with CSS content -->
+<style>
+:root {
+  --teal: #00c2b2;
+  --pink: #ff68b5;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+section {
+  padding: 4rem 2rem;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--teal);
+  z-index: -1;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--pink);
+  z-index: -1;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  animation: fadeIn 1s ease-out;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+.about {
+  background: var(--white);
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  color: var(--teal);
+  margin-bottom: 2rem;
+}
+
+.about p {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-box svg {
+  width: 64px;
+  height: 64px;
+  fill: var(--teal);
+}
+
+.icon-box p {
+  font-weight: bold;
+  margin: 0;
+}
+
+.cta-button {
+  padding: 1.5rem 3rem;
+  font-size: 1.5rem;
+  background: white;
+  border: none;
+  border-radius: 50px;
+  color: var(--teal);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 1s ease-out 0.6s backwards;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid white;
+  opacity: 0.1;
+  animation: float 8s ease-in-out infinite;
+}
+
+.square {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: white;
+  opacity: 0.1;
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.features {
+  background: var(--teal);
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  line-height: 1.6;
+}
+
+.game-modes {
+  background: linear-gradient(135deg, var(--teal), white);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.game-modes h2 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.mode-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mode-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.mode-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonials {
+  background: linear-gradient(135deg, var(--teal), #2980b9);
+  padding: 4rem 2rem;
+  color: white;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.testimonial-carousel {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.faq {
+  background: white;
+  padding: 4rem 2rem;
+}
+
+.faq h2 {
+  font-size: 2.5rem;
+  color: var(--teal);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 1rem;
+  background: var(--teal);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  padding: 1rem;
+  display: none;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.disclaimer {
+  background: #f5f5f5;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.disclaimer h2 {
+  font-size: 2.5rem;
+  color: var(--teal); 
+  margin-bottom: 1rem;
+}
+
+.disclaimer h3 {
+  font-size: 1.8rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.disclaimer p {
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+.disclaimer .legal-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.disclaimer .legal-icons svg {
+  width: 48px;
+  height: 48px;
+  fill: var(--teal);
+}
+
+.disclaimer .legal-link {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--teal);
+}
+
+.disclaimer .legal-link:hover {
+  opacity: 0.8;
+}
+
+footer {
+  background: #333;
+  color: white;
+  padding: 2rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.newsletter-signup {
+  display: flex;
+  gap: 1rem;
+}
+
+.newsletter-signup input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.newsletter-signup button {
+  padding: 0.5rem 1rem;
+  background: #ffd700;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: white;
+  text-decoration: none;
+}
+
+.video-section {
+  background: linear-gradient(135deg, var(--teal), #80e0d8);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.video-section h2 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.video-container {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.video-container:hover {
+  transform: scale(1.02);
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 1rem;
+}
+
+.share-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background: #ff0050;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.share-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.social-share {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.share-hashtag-button {
+  background: var(--pink);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.share-hashtag-button:hover {
+  transform: translateY(-2px);
+}
+
+.hashtag-text {
+  color: var(--pink);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.community {
+  background: linear-gradient(135deg, var(--teal), var(--pink));
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.community h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+}
+
+.community-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s;
+}
+
+.community-card:hover {
+  transform: translateY(-5px);
+}
+
+.community-card svg {
+  fill: white;
+  margin-bottom: 1rem;
+}
+
+.community-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.social-button:hover {
+  transform: translateY(-2px);
+}
+
+.social-button.tiktok {
+  background: #000000;
+}
+
+.social-button.instagram {
+  background: #E4405F;
+}
+
+.rankings {
+  background: linear-gradient(135deg, var(--teal), var(--pink));
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.ranking-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+.ranking-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  width: 250px;
+}
+
+.medal {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.medal.gold {
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+}
+
+.medal.silver {
+  background: linear-gradient(135deg, #c0c0c0, #a9a9a9);
+}
+
+.medal.bronze {
+  background: linear-gradient(135deg, #cd7f32, #8b4513);
+}
+
+.ranking-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 1rem auto;
+  display: block;
+}
+
+.view-rankings {
+  background: white;
+  color: var(--teal);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.view-rankings:hover {
+  transform: translateY(-2px);
+}
+
+.rewards {
+  background: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.rewards h2 {
+  color: var(--teal);
+  margin-bottom: 3rem;
+}
+
+.rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reward-card {
+  padding: 2rem;
+  border-radius: 10px;
+  background: #f5f5f5;
+  transition: transform 0.3s;
+}
+
+.reward-card:hover {
+  transform: translateY(-5px);
+}
+
+.reward-card svg {
+  fill: var(--teal);
+  margin-bottom: 1rem;
+}
+
+.reward-card h3 {
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+
+.reward-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.stat-trend {
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 20px;
+}
+
+.stat-trend.positive {
+  background: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+}
+
+.stat-trend.neutral {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.achievement-showcase {
+  margin: 4rem auto;
+  max-width: 1200px;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.achievement-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  margin-top: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--teal);
+  border-radius: 5px;
+  transition: width 1s ease-out;
+}
+
+.highlight-reel {
+  margin: 4rem auto;
+  max-width: 1200px;
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.highlight-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+}
+
+.highlight-thumbnail {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.highlight-card:hover .play-overlay {
+  opacity: 1;
+}
+
+.highlight-info {
+  padding: 1rem;
+}
+
+.challenges-showcase {
+  background: linear-gradient(135deg, var(--teal), var(--pink));
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.challenge-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.challenge-card:hover {
+  transform: translateY(-10px);
+}
+
+.challenge-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.difficulty-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes cardPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.challenge-card:hover .challenge-icon {
+  animation: cardPulse 1s infinite;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  animation: fadeInUp 1s ease-out 1s backwards;
+}
+
+.mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 15px;
+  position: relative;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background: white;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  animation: scroll 1.5s infinite;
+}
+
+.arrow {
+  font-size: 2rem;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translate(-50%, 0); }
+  100% { transform: translate(-50%, 20px); opacity: 0; }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.player-ticker {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ticker-label {
+  font-size: 1rem;
+}
+
+.ticker-number {
+  min-width: 50px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .icons-container {
+    gap: 2rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .newsletter-signup {
+    flex-direction: column;
+  }
+  
+  .video-container {
+    width: 100%;
+  }
+  
+  .share-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .disclaimer h2 {
+    font-size: 2rem;
+  }
+  
+  .disclaimer h3 {
+    font-size: 1.5rem;
+  }
+  
+  .disclaimer p {
+    font-size: 0.9rem;
+  }
+  
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ranking-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .rewards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid,
+  .achievement-grid,
+  .highlight-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid,
+  .achievement-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ranking-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .rewards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="shapes">
+    <div class="circle" style="top: 20%; left: 10%; width: 100px; height: 100px; background: white;"></div>
+    <div class="triangle" style="top: 40%; right: 20%;"></div>
+    <div class="square" style="bottom: 30%; left: 30%;"></div>
+    <div class="circle" style="bottom: 20%; right: 10%; width: 150px; height: 150px; background: white;"></div>
+  </div>
+  
+  <h1>Enter the Game of Survival</h1>
+  <h2>Challenge yourself or compete against others</h2>
+  <button class="cta-button" onclick="window.location.href=&apos;https://websim.ai/play&apos;">
+    Join the Challenge
+  </button>
+  <div class="scroll-indicator">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <div class="arrow">&#x2304;</div>
+  </div>
+  <div class="player-ticker">
+    <span class="ticker-label">Players Online:</span>
+    <span class="ticker-number">0</span>
+  </div>
+</section>
+
+<section class="about">
+  <h2>What is Squid Game Challenge?</h2>
+  <p>
+    Experience the thrill of the hit series in our immersive online challenges. 
+    Compete against AI or other players in a series of intense mini-games that will test your skills, 
+    reflexes, and strategic thinking. Will you survive and claim the ultimate prize?
+  </p>
+  
+  <div class="icons-container">
+    <div class="icon-box">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+      </svg>
+      <p>AI Gameplay</p>
+    </div>
+    <div class="icon-box">
+      <svg viewBox="0 0 24 24">
+        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+      </svg>
+      <p>Multiplayer Mode</p>
+    </div>
+    <div class="icon-box">
+      <svg viewBox="0 0 24 24">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+      </svg>
+      <p>Varied Challenges</p>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <h2>Why Play With Us?</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>Real-time Competitions</h3>
+      <p>Challenge players from around the world in intense real-time battles.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Daily Challenges</h3>
+      <p>New challenges every day keep the excitement fresh and rewards flowing.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Global Rankings</h3>
+      <p>Climb the global leaderboard and prove your skills to the world.</p>
+    </div>
+  </div>
+</section>
+
+<section class="game-modes">
+  <h2>Choose Your Game Mode</h2>
+  <div class="mode-cards">
+    <div class="mode-card">
+      <h3>Solo Challenge</h3>
+      <p>Perfect your skills against AI opponents at your own pace.</p>
+    </div>
+    <div class="mode-card">
+      <h3>Tournament Mode</h3>
+      <p>Compete in organized tournaments for glory and prizes.</p>
+    </div>
+    <div class="mode-card">
+      <h3>Battle Royale</h3>
+      <p>Last player standing wins in this intense multiplayer mode.</p>
+    </div>
+  </div>
+</section>
+
+<section class="challenges-showcase">
+  <h2>Featured Challenges</h2>
+  <div class="challenge-grid">
+    <div class="challenge-card">
+      <div class="challenge-icon">&#x1f3c3;</div>
+      <h3>Red Light, Green Light</h3>
+      <p>Test your reflexes and timing</p>
+      <div class="difficulty-badge">Easy</div>
+    </div>
+    <div class="challenge-card">
+      <div class="challenge-icon">&#x1f36a;</div> 
+      <h3>Cookie Challenge</h3>
+      <p>Precision and patience required</p>
+      <div class="difficulty-badge">Medium</div>
+    </div>
+    <div class="challenge-card">
+      <div class="challenge-icon">&#x1f687;</div>
+      <h3>Bridge Cross</h3>
+      <p>Strategy meets luck</p>
+      <div class="difficulty-badge">Hard</div>
+    </div>
+  </div>
+</section>
+
+<section class="video-section">
+  <h2>Watch Our Gameplay!</h2>
+  <div class="video-container">
+    <div class="video-placeholder">
+      <svg viewBox="0 0 24 24" width="64" height="64">
+        <path fill="currentColor" d="M8 5v14l11-7z"/>
+      </svg>
+      <p>Click to watch gameplay</p>
+    </div>
+  </div>
+  <button class="share-button">
+    <svg viewBox="0 0 24 24" width="24" height="24">
+      <path fill="currentColor" d="M16 5l-1.42 1.42-1.59-1.59V16h-1.98V4.83L9.42 6.42 8 5l4-4 4 4zm4 5v11c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V10c0-1.1.9-2 2-2h3v2H6v11h12V10h-3V8h3c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+    </svg>
+    Share on TikTok!
+  </button>
+  <div class="social-share">
+    <button class="share-hashtag-button">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M16 5l-1.42 1.42-1.59-1.59V16h-1.98V4.83L9.42 6.42 8 5l4-4 4 4zm4 5v11c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V10c0-1.1.9-2 2-2h3v2H6v11h12V10h-3V8h3c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+      </svg>
+      Share with #SquidGameChallenge
+    </button>
+    <p class="hashtag-text">#SquidGameChallenge</p>
+  </div>
+  <div class="highlight-reel">
+    <h3>Weekly Highlights</h3>
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <div class="highlight-thumbnail" data-video-id="highlight1">
+          <div class="play-overlay">&#x25b6;&#xfe0f;</div>
+        </div>
+        <div class="highlight-info">
+          <h4>Epic Win Streak</h4>
+          <p>@player123</p>
+        </div>
+      </div>
+      <!-- Add more highlight cards -->
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>What Our Players Say</h2>
+  <div class="testimonial-carousel">
+    <div class="testimonial">
+      <p>&quot;The most thrilling online game I&apos;ve ever played! The challenges keep me coming back for more.&quot;</p>
+      <div class="testimonial-author">
+        <img src="https://images.websim.ai/avatar/player1" alt="Player Avatar" width="50" height="50">
+        <p>Sarah K.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="community">
+  <h2>Join Our Community!</h2>
+  <div class="community-grid">
+    <div class="community-card">
+      <svg viewBox="0 0 24 24" width="48" height="48">
+        <path fill="currentColor" d="M15 4c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/>
+      </svg>
+      <h3>Share Your Victories</h3>
+      <p>Post your best moments with #SquidGameChallenge</p>
+    </div>
+    <div class="community-card">
+      <svg viewBox="0 0 24 24" width="48" height="48">
+        <path fill="currentColor" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+      </svg>
+      <h3>Follow Our Socials</h3>
+      <p>Stay updated with the latest challenges</p>
+    </div>
+  </div>
+  <div class="social-links">
+    <a href="https://tiktok.com/@squidgamechallenge" class="social-button tiktok">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+      </svg>
+      Follow on TikTok
+    </a>
+    <a href="https://instagram.com/squidgamechallenge" class="social-button instagram">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+      </svg>
+      Follow on Instagram
+    </a>
+  </div>
+  <div class="achievement-showcase">
+    <h3>Latest Achievements</h3>
+    <div class="achievement-grid">
+      <div class="achievement-card">
+        <div class="achievement-icon">&#x1f3c6;</div>
+        <h4>First Victory</h4>
+        <p>Win your first game</p>
+        <div class="progress-bar" data-progress="65"></div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">&#x26a1;</div>
+        <h4>Speed Demon</h4>
+        <p>Complete a game in under 2 minutes</p>
+        <div class="progress-bar" data-progress="32"></div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">&#x1f31f;</div>
+        <h4>Perfect Score</h4>
+        <p>Score 100% in any game mode</p>
+        <div class="progress-bar" data-progress="12"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rankings">
+  <h2>Global Rankings</h2>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h4>Total Players</h4>
+      <div class="stat-number">247,892</div>
+      <div class="stat-trend positive">+12% this week</div>
+    </div>
+    <div class="stat-card">
+      <h4>Active Games</h4>
+      <div class="stat-number">1,435</div>
+      <div class="stat-trend positive">+8% this week</div>
+    </div>
+    <div class="stat-card">
+      <h4>Prize Pool</h4>
+      <div class="stat-number">&#x24;12,450</div>
+      <div class="stat-trend neutral">Updated daily</div>
+    </div>
+  </div>
+  <div class="ranking-cards">
+    <div class="ranking-card">
+      <div class="medal gold">1</div>
+      <img src="https://images.websim.ai/avatar/champion1" alt="Top Player">
+      <h3>GrandMaster123</h3>
+      <p>Points: 12,458</p>
+    </div>
+    <div class="ranking-card">
+      <div class="medal silver">2</div>
+      <img src="https://images.websim.ai/avatar/champion2" alt="Second Place">
+      <h3>SquidPro99</h3>
+      <p>Points: 11,892</p>
+    </div>
+    <div class="ranking-card">
+      <div class="medal bronze">3</div>
+      <img src="https://images.websim.ai/avatar/champion3" alt="Third Place">
+      <h3>GameMaster456</h3>
+      <p>Points: 11,234</p>
+    </div>
+  </div>
+  <button class="view-rankings">View Full Rankings</button>
+</section>
+
+<section class="rewards">
+  <h2>Win Amazing Rewards!</h2>
+  <div class="rewards-grid">
+    <div class="reward-card">
+      <svg viewBox="0 0 24 24" width="48" height="48">
+        <path fill="currentColor" d="M12 2L1 21h22L12 2zm2 15h-4v-2h4v2zm0-4h-4v-4h4v4z"/>
+      </svg>
+      <h3>Daily Challenges</h3>
+      <p>Complete daily tasks to earn bonus points</p>
+    </div>
+    <div class="reward-card">
+      <svg viewBox="0 0 24 24" width="48" height="48">
+        <path fill="currentColor" d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM13 16h-2v2h2v-2zm0-6h-2v4h2v-4z"/>
+      </svg>
+      <h3>Achievement Badges</h3>
+      <p>Collect unique badges for special accomplishments</p>
+    </div>
+    <div class="reward-card">
+      <svg viewBox="0 0 24 24" width="48" height="48">
+        <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/>
+      </svg>
+      <h3>Premium Rewards</h3>
+      <p>Exclusive in-game items for top performers</p>
+    </div>
+  </div>
+</section>
+
+<section class="disclaimer">
+  <div class="legal-icons">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM13 16h-2v2h2v-2zm0-6h-2v4h2v-4z"/>
+    </svg>
+    <svg viewBox="0 0 24 24">
+      <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+    </svg>
+  </div>
+
+  <h2>Inspired by the Iconic <em>Squid Game</em></h2>
+  <h3>Paying Homage to a Cultural Phenomenon</h3>
+  
+  <p>
+    Our online games draw inspiration from the themes and excitement of the popular Netflix series <em>Squid Game</em>. 
+    We aim to recreate the thrill and challenge in a virtual environment while respecting the original creators&apos; intellectual property. 
+    This project is a fan-made tribute and does not claim to be officially affiliated with or endorsed by Netflix or the creators of <em>Squid Game</em>.
+  </p>
+
+  <p>
+    This website and the games hosted on it are purely for entertainment purposes. 
+    All content is original and does not use any copyrighted materials from the <em>Squid Game</em> series. 
+    All trademarks, service marks, and trade names are the property of their respective owners.
+  </p>
+
+  <p>
+    For more information about our commitment to respecting intellectual property, please visit our 
+    <a href="https://websim.ai/legal" class="legal-link">Legal Information</a> page.
+  </p>
+</section>
+
+<section class="faq">
+  <h2>Got Questions?</h2>
+  <div class="faq-container">
+    <div class="faq-item">
+      <div class="faq-question">
+        How do I get started?
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Simply click the &quot;Join the Challenge&quot; button and follow the instructions to create your account. You&apos;ll be playing in minutes!
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        Is it free to play?
+        <span class="toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        Yes! The game is completely free to play. Optional cosmetic items are available for purchase.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="https://websim.ai/about">About</a>
+      <a href="https://websim.ai/contact">Contact</a>
+      <a href="https://websim.ai/privacy">Privacy Policy</a>
+    </div>
+    <div class="newsletter-signup">
+      <input type="email" placeholder="Enter your email">
+      <button>Subscribe</button>
+    </div>
+    <div class="social-icons">
+      <a href="https://facebook.com"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M16 5v-1H9c-1.66 0-3 1.34-3 3v1h2V8h4v8h2V8h2v1h-2Z"/></svg></a>
+      <a href="https://twitter.com"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>document.querySelectorAll('.shapes > *').forEach(shape => {
+  const randomX = Math.random() * 20 - 10;
+  const randomY = Math.random() * 20 - 10;
+  shape.style.transform = `translate(${randomX}px, ${randomY}px)`;
+});
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const faqItem = question.parentElement;
+    faqItem.classList.toggle('active');
+    const toggle = question.querySelector('.toggle');
+    toggle.textContent = faqItem.classList.contains('active') ? '-' : '+';
+  });
+});
+document.querySelector('.video-container').addEventListener('click', () => {
+  const videoContainer = document.querySelector('.video-container');
+  const placeholder = document.querySelector('.video-placeholder');
+  const iframe = document.createElement('iframe');
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.border = 'none';
+  iframe.src = 'https://www.youtube.com/embed/YOUR_GAMEPLAY_VIDEO_ID?autoplay=1';
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allowFullscreen = true;
+  videoContainer.replaceChild(iframe, placeholder);
+});
+document.querySelector('.share-button').addEventListener('click', () => {
+  window.open('https://www.tiktok.com/upload', '_blank');
+});
+document.querySelector('.share-hashtag-button').addEventListener('click', () => {
+  const text = "Check out my progress in the #SquidGameChallenge!🦑🎮";
+  const url = "https://www.tiktok.com/upload?lang=en";
+  window.open(`${url}&desc=${encodeURIComponent(text)}`, '_blank');
+});
+document.querySelectorAll('.community-card').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.style.transform = 'translateY(-10px)';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'translateY(0)';
+  });
+});
+document.querySelector('.view-rankings').addEventListener('click', () => {
+  window.location.href = 'https://websim.ai/rankings';
+});
+document.querySelectorAll('.reward-card').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.style.transform = 'translateY(-10px)';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'translateY(0)';
+  });
+});
+function initChallengeCards() {
+  document.querySelectorAll('.challenge-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const challengeName = card.querySelector('h3').textContent;
+      window.location.href = `https://websim.ai/play/${encodeURIComponent(challengeName.toLowerCase().replace(/\s+/g, '-'))}`;
+    });
+  });
+}
+function initProgressBars() {
+  document.querySelectorAll('.progress-bar').forEach(bar => {
+    const progress = bar.dataset.progress;
+    bar.style.setProperty('--progress', `${progress}%`);
+    bar.style.width = `${progress}%`;
+  });
+}
+function initHighlights() {
+  document.querySelectorAll('.highlight-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const videoId = card.querySelector('.highlight-thumbnail').dataset.videoId;
+      console.log(`Playing highlight video: ${videoId}`);
+    });
+  });
+}
+function updatePlayerCount() {
+  const baseCount = 1500;
+  const variation = Math.floor(Math.random() * 200) - 100;
+  const ticker = document.querySelector('.ticker-number');
+  ticker.textContent = (baseCount + variation).toLocaleString();
+}
+function updateMetaDescription(desc) {
+  document.querySelector('meta[name="description"]').setAttribute("content", desc);
+  document.querySelector('meta[property="og:description"]').setAttribute("content", desc);
+  document.querySelector('meta[name="twitter:description"]').setAttribute("content", desc);
+}
+function updateTitle(title) {
+  document.title = title;
+  document.querySelector('meta[property="og:title"]').setAttribute("content", title);
+  document.querySelector('meta[name="twitter:title"]').setAttribute("content", title);
+}
+window.addEventListener('load', () => {
+  initProgressBars();
+  initProgressBars();
+  initHighlights();
+  initChallengeCards();
+});
+setInterval(updatePlayerCount, 3000);
+updatePlayerCount();</script>
+
+</body></html>
